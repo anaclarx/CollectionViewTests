@@ -10,7 +10,6 @@ import UIKit
 
 class FungoCollectionViewCell: UICollectionViewCell {
     
-   public var listOfMusic = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,7 +79,6 @@ class FungoCollectionViewCell: UICollectionViewCell {
         musicName.text = name
         musicArtist.text = artist
         musicImage.image = UIImage(named: imageName)
-        listOfMusic.append(name)
     }
     
     override func prepareForReuse() {
@@ -90,3 +88,4 @@ class FungoCollectionViewCell: UICollectionViewCell {
         musicImage.image = UIImage(named: "")
     }
 }
+

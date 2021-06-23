@@ -8,12 +8,23 @@
 import Foundation
 import UIKit
 
+class FungoCollectionViewDataSource {
+    public var listOfMusic: [String] {
+       return  [String].init(repeating: "Red", count: 10) + [String].init(repeating: "Blank Space", count: 10) + [String].init(repeating: "folklore", count: 10)
+    }
+    
+}
+
 class FungoViewController: UIViewController{
     
     var fungoCollection = FungoCollectionView()
-    var fungoCells = FungoCollectionViewCell()
+    var dataSource = FungoCollectionViewDataSource()
     var currentSearch = [String]()
     
+    override func loadView() {
+        super.loadView()
+        currentSearch = dataSource.listOfMusic
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +32,6 @@ class FungoViewController: UIViewController{
         fungoCollection.collection.delegate = self
         fungoCollection.collection.dataSource = self
         fungoCollection.searchBar.delegate = self
-        currentSearch = fungoCells.listOfMusic
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,9 +49,9 @@ extension FungoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = fungoCollection.collection.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! FungoCollectionViewCell
         
-        myCell.configureCells(name: "Red \(indexPath.row)", artist: "Taylor Swift \(indexPath.row)", imageName: "img1")
-        
-        
+        let name = currentSearch[indexPath.row]
+        myCell.configureCells(name: name, artist: "Taylor Swift \(indexPath.row)", imageName: "img1")
+    
         
         return myCell
     }
@@ -50,17 +60,16 @@ extension FungoViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: view.frame.width, height: 40)
     }
     
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return currentSearch.count
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        currentSearch = fungoCells.listOfMusic.filter({ name -> Bool in
+        currentSearch = dataSource.listOfMusic.filter({ name -> Bool in
             guard let text = searchBar.text else {return false}
             return name.contains(text)
         })
@@ -69,3 +78,4 @@ extension FungoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     
 }
+
