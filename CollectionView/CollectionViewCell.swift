@@ -23,7 +23,7 @@ class CollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.sizeToFit()
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
         return label
     }()
@@ -32,7 +32,7 @@ class CollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.sizeToFit()
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
         label.text = "Nome Artista"
         return label
@@ -41,9 +41,8 @@ class CollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = 20
         imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
         return imageView
     }()
     func setUpViews() {
@@ -57,9 +56,9 @@ class CollectionViewCell: UICollectionViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        musicName.frame = CGRect(x: 5, y: contentView.frame.size.height - 30, width: contentView.frame.width - 10, height: 15)
-        musicArtist.frame = CGRect(x: 5, y: contentView.frame.size.height - 15, width: contentView.frame.width - 10, height: 15)
-        musicImage.frame = CGRect(x: 5, y: 0, width: contentView.frame.width - 10, height: contentView.frame.size.height - 30)
+        musicName.frame = CGRect(x: 5, y: contentView.frame.size.height - 30, width: contentView.frame.width - 0, height: 15)
+        musicArtist.frame = CGRect(x: 5, y: contentView.frame.size.height - 15, width: contentView.frame.width - 0, height: 15)
+        musicImage.frame = CGRect(x: 5, y: 0, width: contentView.frame.width - 10, height: contentView.frame.size.height - 20)
         musicImage.image = UIImage(named: "img1")
     }
     required init?(coder: NSCoder) {

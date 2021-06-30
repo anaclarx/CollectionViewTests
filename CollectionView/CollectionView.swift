@@ -10,11 +10,11 @@ import Foundation
 class CollectionView: UIView {
     var collection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let itemSquareSize = UIScreen.main.bounds.width / 3
+        let itemSquareSize = UIScreen.main.bounds.width / 2.5
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
-        layout.sectionInset = UIEdgeInsets(top: 100, left: 35, bottom: 20, right: 35)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 20, right: 16)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.itemSize = CGSize(width: itemSquareSize + 10, height: itemSquareSize + 40 )
         collection.translatesAutoresizingMaskIntoConstraints = false

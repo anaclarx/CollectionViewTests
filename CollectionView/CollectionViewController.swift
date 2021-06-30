@@ -61,6 +61,13 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         return currentSearch.count
     }
     
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        guard let yourCell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell else {
+//            return
+//        }
+//        let targetViewController = TargetViewController(model: yourModel)
+//        navigationController?.pushViewController(targetViewController, animated: true)
+//    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -84,12 +91,24 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func setUpNavigationBar(){
         let myColor = UIColor(red: 249/255.0, green: 249/255.0, blue: 249/255.0, alpha: 1.0)
+        let buttonColor = UIColor(red: 200/255.0, green: 200/255.0, blue: 200/255.0, alpha: 1.0)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = myColor
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.searchController = fungoCollection.searchBar
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: 0, y: 0, width: 74, height: 24)
+        button.backgroundColor = buttonColor
+        button.setTitle("Selecionar", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 13.0)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.layer.cornerRadius = button.frame.size.height/1.8
+        button.clipsToBounds = true
+        let counterButton = UIBarButtonItem(customView: button)
+        let buttons:[UIBarButtonItem] = [counterButton]
+        self.navigationItem.rightBarButtonItems = buttons
         title = "Meus Colecionáveis"
     }
-
+    
 }
 

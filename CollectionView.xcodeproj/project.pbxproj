@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AB2EFB8268D022F002CACC8 /* ModalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2EFB7268D022F002CACC8 /* ModalCollectionView.swift */; };
 		0ABB41DF267A737F00E03D07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB41DE267A737F00E03D07 /* AppDelegate.swift */; };
 		0ABB41E1267A737F00E03D07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB41E0267A737F00E03D07 /* SceneDelegate.swift */; };
 		0ABB41E8267A738200E03D07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABB41E7267A738200E03D07 /* Assets.xcassets */; };
 		0ABB41EB267A738200E03D07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ABB41E9267A738200E03D07 /* LaunchScreen.storyboard */; };
 		0ABB41F6267A738200E03D07 /* CollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB41F5267A738200E03D07 /* CollectionViewTests.swift */; };
 		0ABB4201267A738200E03D07 /* CollectionViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB4200267A738200E03D07 /* CollectionViewUITests.swift */; };
-		0ABB420F267A742900E03D07 /* FungoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB420E267A742900E03D07 /* FungoViewController.swift */; };
-		0ABB4211267A745E00E03D07 /* FungoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB4210267A745E00E03D07 /* FungoCollectionViewCell.swift */; };
-		0ABB4213267BCF7000E03D07 /* FungoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB4212267BCF7000E03D07 /* FungoCollectionView.swift */; };
+		0ABB420F267A742900E03D07 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB420E267A742900E03D07 /* CollectionViewController.swift */; };
+		0ABB4211267A745E00E03D07 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB4210267A745E00E03D07 /* CollectionViewCell.swift */; };
+		0ABB4213267BCF7000E03D07 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB4212267BCF7000E03D07 /* CollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AB2EFB7268D022F002CACC8 /* ModalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalCollectionView.swift; sourceTree = "<group>"; };
 		0ABB41DB267A737F00E03D07 /* CollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABB41DE267A737F00E03D07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ABB41E0267A737F00E03D07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,9 +50,9 @@
 		0ABB41FC267A738200E03D07 /* CollectionViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollectionViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABB4200267A738200E03D07 /* CollectionViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewUITests.swift; sourceTree = "<group>"; };
 		0ABB4202267A738200E03D07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0ABB420E267A742900E03D07 /* FungoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FungoViewController.swift; sourceTree = "<group>"; };
-		0ABB4210267A745E00E03D07 /* FungoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FungoCollectionViewCell.swift; sourceTree = "<group>"; };
-		0ABB4212267BCF7000E03D07 /* FungoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FungoCollectionView.swift; sourceTree = "<group>"; };
+		0ABB420E267A742900E03D07 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		0ABB4210267A745E00E03D07 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		0ABB4212267BCF7000E03D07 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +104,10 @@
 			children = (
 				0ABB41DE267A737F00E03D07 /* AppDelegate.swift */,
 				0ABB41E0267A737F00E03D07 /* SceneDelegate.swift */,
-				0ABB420E267A742900E03D07 /* FungoViewController.swift */,
-				0ABB4212267BCF7000E03D07 /* FungoCollectionView.swift */,
-				0ABB4210267A745E00E03D07 /* FungoCollectionViewCell.swift */,
+				0ABB420E267A742900E03D07 /* CollectionViewController.swift */,
+				0ABB4212267BCF7000E03D07 /* CollectionView.swift */,
+				0AB2EFB7268D022F002CACC8 /* ModalCollectionView.swift */,
+				0ABB4210267A745E00E03D07 /* CollectionViewCell.swift */,
 				0ABB41E7267A738200E03D07 /* Assets.xcassets */,
 				0ABB41E9267A738200E03D07 /* LaunchScreen.storyboard */,
 				0ABB41EC267A738200E03D07 /* Info.plist */,
@@ -260,10 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ABB4213267BCF7000E03D07 /* FungoCollectionView.swift in Sources */,
+				0ABB4213267BCF7000E03D07 /* CollectionView.swift in Sources */,
 				0ABB41DF267A737F00E03D07 /* AppDelegate.swift in Sources */,
-				0ABB4211267A745E00E03D07 /* FungoCollectionViewCell.swift in Sources */,
-				0ABB420F267A742900E03D07 /* FungoViewController.swift in Sources */,
+				0ABB4211267A745E00E03D07 /* CollectionViewCell.swift in Sources */,
+				0ABB420F267A742900E03D07 /* CollectionViewController.swift in Sources */,
+				0AB2EFB8268D022F002CACC8 /* ModalCollectionView.swift in Sources */,
 				0ABB41E1267A737F00E03D07 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
