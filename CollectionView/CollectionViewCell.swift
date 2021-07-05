@@ -58,7 +58,6 @@ class CollectionViewCell: UICollectionViewCell {
         musicName.frame = CGRect(x: 5, y: contentView.frame.size.height - 30, width: contentView.frame.width - 0, height: 15)
         musicArtist.frame = CGRect(x: 5, y: contentView.frame.size.height - 15, width: contentView.frame.width - 0, height: 15)
         musicImage.frame = CGRect(x: 5, y: 0, width: contentView.frame.width - 10, height: contentView.frame.size.height - 20)
-        musicImage.image = UIImage(named: "img1")
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

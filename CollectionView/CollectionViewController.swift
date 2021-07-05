@@ -10,12 +10,17 @@ import UIKit
 
 class CollectionViewController: UIViewController, UISearchControllerDelegate {
     var currentSearch = [String]()
+    var currentImage = [String]()
     public var listOfMusic: [String] {
         return  [String].init(repeating: "Red", count: 10) + [String].init(repeating: "Blank Space", count: 10) + [String].init(repeating: "folklore", count: 10)
     }
+//    public var listOfImage: [String] {
+//        return  [String].init(repeating: "red", count: 10) + [String].init(repeating: "blank", count: 10) + [String].init(repeating: "folklore", count: 10)
+//    }
     var fungoCollection = CollectionView()
     override func loadView() {
         super.loadView()
+        //currentImage = listOfImage
         currentSearch = listOfMusic
         setUpNavigationBar()
     }
@@ -40,7 +45,7 @@ extension CollectionViewController: UICollectionViewDataSource{
         if let myCell = fungoCollection.collection.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell
         {
             let name = currentSearch[indexPath.row]
-            myCell.configureCells(name: name, artist: "Taylor Swift \(indexPath.row)", imageName: "img1")
+            myCell.configureCells(name: name, artist: "Taylor Swift", imageName: name)
             return myCell
         }
         return UICollectionViewCell()
@@ -72,7 +77,7 @@ extension CollectionViewController: UICollectionViewDataSource{
         let counterButton = UIBarButtonItem(customView: button)
         let buttons:[UIBarButtonItem] = [counterButton]
         self.navigationItem.rightBarButtonItems = buttons
-        title = "Meus Colecionáveis"
+        title = "Coleção"
     }
 
 }
