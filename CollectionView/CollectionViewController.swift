@@ -22,7 +22,7 @@ class CollectionViewController: UIViewController, UISearchControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = fungoCollection
-        fungoCollection.collection.delegate = self
+        //fungoCollection.collection.delegate = self
         fungoCollection.collection.dataSource = self
         fungoCollection.searchBar.searchBar.delegate = self
     }
@@ -35,60 +35,25 @@ class CollectionViewController: UIViewController, UISearchControllerDelegate {
     }
 }
 
-extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
+extension CollectionViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = fungoCollection.collection.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! CollectionViewCell?
-        let name = currentSearch[indexPath.row]
-        if let cell = myCell {
-            cell.configureCells(name: name, artist: "Taylor Swift \(indexPath.row)", imageName: "img1")
-            return cell
+        if let myCell = fungoCollection.collection.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell
+        {
+            let name = currentSearch[indexPath.row]
+            myCell.configureCells(name: name, artist: "Taylor Swift \(indexPath.row)", imageName: "img1")
+            return myCell
         }
         return UICollectionViewCell()
     }
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 40)
     }
-    
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentSearch.count
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        guard let yourCell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell else {
-//            return
-//        }
-//        let targetViewController = TargetViewController(model: yourModel)
-//        navigationController?.pushViewController(targetViewController, animated: true)
-//    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        guard !searchText.isEmpty else {
-            currentSearch = listOfMusic
-            fungoCollection.collection.reloadData()
-            return
-        }
-        currentSearch = listOfMusic.filter({ name -> Bool in
-            guard let text = searchBar.text else {return false}
-            return name.contains(text)
-        })
-        fungoCollection.collection.reloadData()
-    }
-
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        currentSearch = listOfMusic
-        fungoCollection.collection.reloadData()
-    }
-    
     func setUpNavigationBar(){
         let myColor = UIColor(red: 249/255.0, green: 249/255.0, blue: 249/255.0, alpha: 1.0)
         let buttonColor = UIColor(red: 200/255.0, green: 200/255.0, blue: 200/255.0, alpha: 1.0)
@@ -109,6 +74,30 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         self.navigationItem.rightBarButtonItems = buttons
         title = "Meus Colecionáveis"
     }
-    
+
 }
 
+extension CollectionViewController: UICollectionViewDelegate{
+//Ainda será implementado
+}
+
+extension CollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard !searchText.isEmpty else {
+            currentSearch = listOfMusic
+            fungoCollection.collection.reloadData()
+            return
+        }
+        currentSearch = listOfMusic.filter({ name -> Bool in
+            guard let text = searchBar.text else { return false }
+            return name.contains(text)
+        })
+        fungoCollection.collection.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        currentSearch = listOfMusic
+        fungoCollection.collection.reloadData()
+    }
+}

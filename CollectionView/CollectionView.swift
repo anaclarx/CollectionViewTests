@@ -18,7 +18,7 @@ class CollectionView: UIView {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.itemSize = CGSize(width: itemSquareSize + 10, height: itemSquareSize + 40 )
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
         collection.showsHorizontalScrollIndicator = false
         return collection
     }()
@@ -29,7 +29,7 @@ class CollectionView: UIView {
         searchBar.dimsBackgroundDuringPresentation = false
         searchBar.searchBar.sizeToFit()
         searchBar.searchBar.returnKeyType = UIReturnKeyType.search
-        searchBar.searchBar.placeholder = "Search Music"
+        searchBar.searchBar.placeholder = "Procurar Música"
         return searchBar
     }()
     init() {
@@ -40,7 +40,7 @@ class CollectionView: UIView {
         setUpCollectionView()
     }
     func setUpCollectionView() {
-        collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
+        collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .systemBackground
         NSLayoutConstraint.activate([

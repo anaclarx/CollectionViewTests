@@ -17,9 +17,9 @@ class CollectionViewCell: UICollectionViewCell {
         contentView.addSubview(musicImage)
         contentView.clipsToBounds = true
     }
+    public static let identifier = "CollectionViewCell"
     var musicName: UILabel = {
         let label = UILabel()
-        label.text = "Nome Música"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.contentMode = .scaleAspectFit
         label.sizeToFit()
@@ -34,7 +34,6 @@ class CollectionViewCell: UICollectionViewCell {
         label.sizeToFit()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
-        label.text = "Nome Artista"
         return label
     }()
     var musicImage: UIImageView = {
@@ -71,8 +70,6 @@ class CollectionViewCell: UICollectionViewCell {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
-        musicName.text = nil
-        musicArtist.text = nil
         musicImage.image = UIImage(named: "")
     }
 }
